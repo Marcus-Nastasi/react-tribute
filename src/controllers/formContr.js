@@ -5,7 +5,7 @@ exports.cont = async (request, response) => {
 
    const data = await FormContato.getUsers();
 
-   return response.render('contato');
+   return response.render('pages/contato');
 };
 
 exports.handlePost = async (request, response) => {
@@ -21,7 +21,7 @@ exports.handlePost = async (request, response) => {
 };
 
 exports.users = async (req, res) => {
-   return res.render('users.html');
+   return res.render('pages/users');
 };
 
 exports.getUsrs = async (req, res) => {

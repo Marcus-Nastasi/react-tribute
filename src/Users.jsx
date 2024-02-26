@@ -3,19 +3,16 @@ import React, { useState } from 'react';
 export default function Users() {
    const [dados, setDados] = useState([]);
 
-   const handle = () => {
-      const fetchData = async() => {
-         try {
-            const response = await fetch('/getUsr');
+   const handle = async () => {
+      try {
+         const response = await fetch('/getUsr');
 
-            const data = await response.json();
+         const data = await response.json();
 
-            return setDados(data);
-         } catch(error) {
-            console.error('Erro ao buscar os dados:', error);
-         }
+         return setDados(data);
+      } catch(error) {
+         console.error('Erro ao buscar os dados:', error);
       }
-      fetchData();
    }
 
    return (

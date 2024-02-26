@@ -10,11 +10,10 @@ export default defineConfig({
    rollupOptions: {
      input: {
          main: resolve(__dirname, 'index.html'),
-         nested: resolve(__dirname, `users.html`),      
+         users: resolve(__dirname, '/pages/users.html'), 
+         contact: resolve(__dirname, '/pages/contato.html')  
       },
    },
  },
 });
-
-
 

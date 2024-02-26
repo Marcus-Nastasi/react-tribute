@@ -13,6 +13,7 @@ routes.post('/pst', formContr.handlePost);
 // Users
 routes.get('/users', formContr.users);
 routes.get('/getUsr', formContr.getUsrs);
+routes.get('/delete/:id', formContr.delete);
 
 module.exports = routes;
 

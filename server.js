@@ -6,10 +6,7 @@ const routes = require('./src/routes/routes');
 const port = 3003;
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTIONSTR).then(() => {
-   console.log('mongodb connected');
-   app.emit('ok');
-}).catch(e => console.log(e));
+mongoose.connect(process.env.CONNECTIONSTR).then(() => app.emit('ok')).catch(e => console.log(e));
 
 app.use(express.urlencoded({ extended: true }));
 

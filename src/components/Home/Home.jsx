@@ -16,7 +16,7 @@ export default function Home({ theme }) {
 
    (theme === 'light') ? userTheme = 'bg-slate-200' : 0;
 
-   var userClasses = `flex justify-center items-center h-screen ${userTheme}`;
+   var userClasses = `flex justify-center items-center h-screen transition-all ease-in-out duration-500 ${userTheme}`;
 
    return(
       <main className={userClasses}>

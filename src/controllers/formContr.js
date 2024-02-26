@@ -1,34 +1,31 @@
 const Form = require('../models/Form.js');
 
-exports.cont = async (request, response) => {
-   const FormContato = new Form(request.body);
+// Rendering
+exports.cont = async (request, response) => response.render('pages/contato');
 
-   const data = await FormContato.getUsers();
+exports.users = async (req, res) => res.render('pages/users');
 
-   return response.render('pages/contato');
-};
-
+// Cruds
 exports.handlePost = async (request, response) => {
-   const FormContato = new Form(request.body);
-
    try {
+      const FormContato = new Form(request.body);
+
       await FormContato.send();
-      return response.redirect('/');
+
+      return response.redirect('/users');
    } catch (error) {
       console.log(error);
       return response.send('Erro');
    }
 };
 
-exports.users = async (req, res) => {
-   return res.render('pages/users');
-};
 
 exports.getUsrs = async (req, res) => {
-   const FormContato = new Form(req.body);
-
    try {
+      const FormContato = new Form(req.body);
+
       const data = await FormContato.getUsers();
+
       return res.json(data);
    } catch (error) {
       console.log(error);
@@ -36,4 +33,16 @@ exports.getUsrs = async (req, res) => {
    }
 };
 
+exports.delete = async (req, res) => {
+   try {
+      const FormContato = new Form();
+
+      await FormContato.delete(req.params.id);
+
+      return res.redirect('/users'); 
+   } catch (error) {
+      console.log(error);
+      return res.redirect('/');
+   }
+};
 

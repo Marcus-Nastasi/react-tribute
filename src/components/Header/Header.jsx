@@ -1,8 +1,20 @@
 import React from "react";
 import viteLogo from '../../../public/vite.svg';
 
-export default function Header() {
+export default function Header({ theme }) {
+   let userTheme = 'bg-slate-300';
+   let menu = 'text-slate-600';
+
+   if(theme === 'light') {
+      userTheme = 'bg-slate-500';
+      menu = 'text-slate-50';
+   }
+
+   const userClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${userTheme}`;
+   const menuClasses = `flex flex-row text-2xl font-semibold transition-all ease-in-out duration-300 ${menu}`; 
+
    return(
+      <header className={userClasses}>
       <section className="flex flex-row justify-between">
 
          <section className="p-10">
@@ -11,7 +23,7 @@ export default function Header() {
 
          <section className="p-10">
 
-            <ul className="flex flex-row text-2xl font-semibold text-slate-600">
+            <ul className={menuClasses}>
                <li className="p-5">
                   <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="">
                      Home
@@ -37,6 +49,8 @@ export default function Header() {
          </section>
 
       </section>
+      </header>
    );
 }
+
 

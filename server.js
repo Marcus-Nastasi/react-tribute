@@ -6,10 +6,12 @@ const routes = require('./src/routes/routes');
 const port = 3003;
 const mongoose = require('mongoose');
 
-// mongoose.connect(process.env.CONNECTIONSTR).then(() => {
-//    console.log('mongodb connected');
-//    app.emit('ok');
-// }).catch(e => console.log(e));
+mongoose.connect(process.env.CONNECTIONSTR).then(() => {
+   console.log('mongodb connected');
+   app.emit('ok');
+}).catch(e => console.log(e));
+
+app.use(express.urlencoded({ extended: true }));
 
 app.set('views', path.join(__dirname, 'dist'));
 app.engine('html', require('ejs').renderFile);
@@ -19,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(routes);
 
-// app.on('ok', () => );
+app.on('ok', () => app.listen(port, () => console.log('http://localhost:3003/')));
 
-app.listen(port, () => console.log('http://localhost:3003/'));
 

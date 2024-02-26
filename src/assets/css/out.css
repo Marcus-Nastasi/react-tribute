@@ -619,6 +619,10 @@ video {
   width: 91.666667%;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .grow {
   flex-grow: 1;
 }
@@ -649,6 +653,10 @@ video {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .overflow-x-hidden {
@@ -774,6 +782,26 @@ video {
   padding-right: 1.5rem;
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -877,5 +905,57 @@ video {
 @media (min-width: 640px) {
   .sm\:w-3\/5 {
     width: 60%;
+  }
+
+  .sm\:w-3\/4 {
+    width: 75%;
+  }
+
+  .sm\:w-4\/5 {
+    width: 80%;
+  }
+
+  .sm\:w-11\/12 {
+    width: 91.666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:w-5\/6 {
+    width: 83.333333%;
+  }
+
+  .md\:w-4\/6 {
+    width: 66.666667%;
+  }
+
+  .md\:w-10\/12 {
+    width: 83.333333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:w-7\/12 {
+    width: 58.333333%;
+  }
+
+  .lg\:w-9\/12 {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-6\/12 {
+    width: 50%;
+  }
+
+  .xl\:w-8\/12 {
+    width: 66.666667%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:w-5\/12 {
+    width: 41.666667%;
   }
 }

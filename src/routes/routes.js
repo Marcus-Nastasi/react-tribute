@@ -8,7 +8,10 @@ routes.get('/', homeContr.index);
 
 // Contato
 routes.get('/contato', formContr.cont);
-routes.post('/pst', formContr.handlePost)
+routes.post('/pst', formContr.handlePost);
+
+// Users
+routes.get('/users', formContr.users);
 
 module.exports = routes;
 

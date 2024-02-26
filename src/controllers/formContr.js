@@ -5,8 +5,6 @@ exports.cont = async (request, response) => {
 
    const data = await FormContato.getUsers();
 
-   console.log(data);
-
    return response.render('contato');
 };
 
@@ -23,14 +21,19 @@ exports.handlePost = async (request, response) => {
 };
 
 exports.users = async (req, res) => {
+   return res.render('users.html');
+};
+
+exports.getUsrs = async (req, res) => {
    const FormContato = new Form(req.body);
 
    try {
       const data = await FormContato.getUsers();
-      return res.json(data); // Retorna os dados em JSON
+      return res.json(data);
    } catch (error) {
       console.log(error);
       return res.status(500).json({ error: 'Erro ao buscar os dados' });
    }
 };
+
 

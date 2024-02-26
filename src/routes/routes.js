@@ -12,6 +12,7 @@ routes.post('/pst', formContr.handlePost);
 
 // Users
 routes.get('/users', formContr.users);
+routes.get('/getUsr', formContr.getUsrs);
 
 module.exports = routes;
 

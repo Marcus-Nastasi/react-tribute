@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { FaCircleHalfStroke } from "react-icons/fa6";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Form from './components/Form/Form';
 
 function App() {
    const [theme, setTheme] = useState('def');
@@ -26,8 +25,6 @@ function App() {
          </header>
 
          <Home theme={theme} />
-
-         <Form />
 
       </section>
    );

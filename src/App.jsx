@@ -15,7 +15,9 @@ function App() {
          <header className="h-fit w-screen bg-slate-300">
 
             <section className='absolute top-5 right-5'>
+
                <FaCircleHalfStroke onClick={handleTheme} className='text-2xl hover:cursor-pointer' />
+               
             </section>
 
             <Header />

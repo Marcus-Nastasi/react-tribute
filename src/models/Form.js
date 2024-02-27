@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const FormSchema = new mongoose.Schema({ 
    name: String, 
    email: String, 
-   foto: String 
+   foto: String,
+   base64: String
 });
 
 const FormModel = mongoose.model('users', FormSchema);

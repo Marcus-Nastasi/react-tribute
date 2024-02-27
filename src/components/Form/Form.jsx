@@ -1,41 +1,8 @@
 import React from "react";
 import { useState } from "react";
-// import axios from "axios";
 
 export default function Form() {
-   // const [name, setName] = useState('');
-   // const [email, setEmail] = useState('');
    const [image, setImage] = useState('');
-
-   // async function handleSubmit(e) {
-   //    e.preventDefault();
-
-   //    try {
-   //       // const send = await axios.post('http://localhost:3003/pst', bodyJson);
-
-   //       const bd = {
-   //          name: e.target.name.value,
-   //          email: e.target.email.value,
-   //          foto: image
-   //       };
-
-   //       console.log(bd);
-
-   //       let dataSended = await axios('http://localhost:3003/pst', { 
-   //          method: 'post', 
-   //          data: bd,
-   //          headers: {
-   //             'Content-Type': 'application/json'
-   //          },
-   //       });
-
-   //       dataSended = await dataSended.json;
-
-   //       return dataSended;
-   //    } catch (error) {
-   //       console.log(error);
-   //    }
-   // };
 
    async function handleFileUpload(e) {
       const file = e.target.files[0];
@@ -57,7 +24,7 @@ export default function Form() {
    };
 
    return(
-      <form action="/pst" method="post" // onSubmit={async(e) => await handleSubmit(e)} 
+      <form action="/pst" method="post"
          className="flex justify-center p-10 px-0 rounded-md bg-slate-500">
 
          <section className="flex flex-col py-6 w-screen rounded-lg bg-slate-900 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12">

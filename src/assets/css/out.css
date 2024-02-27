@@ -627,6 +627,10 @@ video {
   width: 100vw;
 }
 
+.w-3\/6 {
+  width: 50%;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -649,6 +653,10 @@ video {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.self-center {
+  align-self: center;
 }
 
 .overflow-x-hidden {
@@ -733,6 +741,10 @@ video {
   padding: 1.25rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -804,6 +816,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-semibold {

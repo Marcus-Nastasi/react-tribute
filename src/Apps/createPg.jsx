@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Cont from './Cont'
+import Create from './Create'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Cont />
+    <Create />
   </React.StrictMode>,
 );

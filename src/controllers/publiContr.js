@@ -1,7 +1,7 @@
 const Form = require('../models/Form.js');
 
 // Rendering
-exports.cont = async (req, res) => res.render('pages/create');
+exports.createPg = async (req, res) => res.render('pages/create');
 
 exports.publis = async (req, res) => res.render('pages/publi');
 
@@ -29,7 +29,7 @@ exports.getPublis = async (req, res) => {
    try {
       const Publis = new Form(req.body);
 
-      const data = await Publis.getUsers();
+      const data = await Publis.getPublis();
       
       return res.json(data);
    } catch(error) {
@@ -42,7 +42,7 @@ exports.getOnePubli = async(req, res) => {
    try {
       const Publis = new Form(req.body);
 
-      const singlePubli = await Publis.getSingleUser(req.params.id);
+      const singlePubli = await Publis.getSinglePubli(req.params.id);
 
       return res.send(JSON.stringify(singlePubli));
    } catch(error) {

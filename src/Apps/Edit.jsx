@@ -22,7 +22,7 @@ function Edit() {
       const nt = await note.json();
 
       setNoteData(nt[0]);
-      
+
       return noteData;
    };
 
@@ -50,28 +50,28 @@ function Edit() {
 
          <form method="post" action={`/publi/apis/edit/post/${noteData._id}`} className="flex justify-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-600 text-slate-100 bg-slate-900">
 
-            <label className="p-5 text-2xl" htmlFor="name">Novo nome:</label>
+            <label className="p-5 text-2xl" htmlFor="title">Novo título:</label>
             <input
                placeholder={noteData.name}
                className="p-2 self-center font-semibold text-slate-900 rounded-sm bg-slate-100" 
                type="text" 
-               name="name" 
-               id="name" 
+               name="title" 
+               id="title" 
             />
 
-            <label className="p-5 text-2xl" htmlFor="email">Novo e-mail:</label>
+            <label className="p-5 text-2xl" htmlFor="email">Novo conteúdo:</label>
             <input 
                placeholder={noteData.email} 
                className="p-2 self-center font-semibold text-slate-900 rounded-sm bg-slate-100" 
-               type="email" 
-               name="email" 
-               id="email" 
+               type="text" 
+               name="content" 
+               id="content" 
             />
 
             <label className="p-5 text-2xl" htmlFor="foto">Nova imagem:</label>
             <input
                onChange={handleFileUpload}
-               className="p-2 self-center font-semibold text-slate-900 rounded-sm" 
+               className="p-2 self-center font-semibold text-slate-100 rounded-sm" 
                type="file" 
                name="foto" 
                id="foto" 

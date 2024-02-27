@@ -33,15 +33,15 @@ export default function Form() {
 
                <section className="flex flex-col w-full px-10 sm:w-4/5 md:w-4/6 lg:w-7/12 xl:w-6/12 2xl:w-5/12">
 
-                  <label htmlFor="name" className="mb-2 text-xl font-semibold text-slate-200">Nome:</label>
-                  <input itemType="text" name="name" id="name" 
+                  <label htmlFor="title" className="mb-2 text-xl font-semibold text-slate-200">Título:</label>
+                  <input itemType="text" name="title" id="title" 
                      className="mb-6 p-2 rounded-md text-slate-900 bg-slate-600 focus:bg-slate-200 " />
 
-                  <label htmlFor="email" className="mb-2 text-xl font-semibold text-slate-200">E-mail:</label>
-                  <input itemType="email" name="email" id="email" 
+                  <label htmlFor="content" className="mb-2 text-xl font-semibold text-slate-200">Conteúdo:</label>
+                  <input itemType="text" name="content" id="content" 
                      className="mb-6 p-2 rounded-md text-slate-900 bg-slate-600 focus:bg-slate-200 " />
 
-                  <label htmlFor="foto" className="mb-2 text-xl font-semibold text-slate-200">Foto:</label>
+                  <label htmlFor="foto" className="mb-2 text-xl font-semibold text-slate-200">Imagem:</label>
                   <input
                      onChange={e => handleFileUpload(e)}
                      type="file"
@@ -51,7 +51,7 @@ export default function Form() {
                      className="text-slate-100 m-1" 
                   />
 
-                  <input type="hidden" name="base64" id="base64" value={image} />
+                  <input value={image} type="hidden" name="base64" id="base64" />
 
                </section>
 
@@ -60,7 +60,7 @@ export default function Form() {
                   <button type="submit" className="my-3 p-3 px-6 text-lg font-semibold rounded-md text-slate-300 bg-slate-700">
                      Enviar
                   </button>
-                  
+
                </section>
 
             </section>

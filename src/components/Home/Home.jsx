@@ -1,31 +1,43 @@
 import React, { useState } from "react";
 import Post from "../Post/Post";
 
-const [ content1, content2 ] = [
-   `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita nostrum adipisci corrupti et 
-   dolor fuga vitae totam. Cum impedit molestias atque iure consectetur iusto id. 
-   Similique saepe repellendus minima at.`,
-
-   `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita nostrum adipisci corrupti et 
-   dolor fuga vitae totam. Cum impedit molestias atque iure consectetur iusto id. 
-   Similique saepe repellendus minima at.`
-];
-
 export default function Home({ theme }) {
+   const [dados, setDados] = useState([]);
+
+   async function handleFetch() {
+      try {
+         const response = await fetch('/publis/apis/publications');
+
+         const data = await response.json();
+
+         return setDados(data);
+      } catch(e) {
+         console.error('Erro ao buscar os dados na home:', e);
+      }
+   };
+
    let userTheme = 'bg-slate-800';
 
    (theme === 'light') ? userTheme = 'bg-slate-200' : 0;
 
-   var userClasses = `flex justify-center items-center h-screen transition-all ease-in-out duration-500 ${userTheme}`;
+   var userClasses = `flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${userTheme}`;
 
    return(
-      <main className={userClasses}>
+      <main onMouseOver={handleFetch} className={userClasses}>
 
-         <section className="flex justify-evenly p-10 w-9/12">
+         <section className="flex justify-center items-center w-screen mb-10">
+            <h1 className="text-8xl font-bold text-slate-100">Feed</h1>
+         </section>
 
-            <Post bg={'bg-red-400'} title={'Post do Blog 1'} content={content1} />
+         <section className="flex justify-evenly w-9/12">
 
-            <Post bg={'bg-blue-400'} title={'Post do blog 2'} content={content2} />
+            {dados.map(dado => {
+               return(
+                  <>
+                     <Post bg={'bg-slate-200'} title={dado.title} content={dado.content} src={dado.base64} />
+                  </>
+               );
+            })}
 
          </section>
 

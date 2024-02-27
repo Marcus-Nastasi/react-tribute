@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
 const FormSchema = new mongoose.Schema({ 
-   name: String, 
-   email: String, 
-   foto: String,
+   title: String, 
+   content: String, 
    base64: String
 });
 
-const FormModel = mongoose.model('users', FormSchema);
+const FormModel = mongoose.model('publications', FormSchema);
 
 class Form {
    constructor(body) {
@@ -16,9 +15,9 @@ class Form {
 
    send = async() => await FormModel.create(this.body);
 
-   getUsers = async() => await FormModel.find();
+   getPublis = async() => await FormModel.find();
 
-   getSingleUser = async(id) => await FormModel.find({ _id: id });
+   getSinglePubli = async(id) => await FormModel.find({ _id: id });
 
    edit = async(id) => await FormModel.findByIdAndUpdate(id, this.body, { new: true });
 

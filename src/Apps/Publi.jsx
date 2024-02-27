@@ -34,8 +34,8 @@ export default function Users() {
                         <li key={d._id} className='flex items-center text-lg font-semibold text-slate-900'>
 
                            <section>
-                              Nome: {d.name} <br />
-                              E-mail: {d.email} <br />
+                              Título: {d.title} <br />
+                              Conteúdo: {d.content} <br />
                               Img: <img className='w-3/6' src={d.base64} alt="" />
                            </section>
 

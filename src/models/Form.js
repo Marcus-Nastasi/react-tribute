@@ -20,19 +20,11 @@ class Form {
 
    getSingleUser = async(id) => await FormModel.find({ _id: id });
 
-   getImages = async(id) => {
-      const user = await this.getSingleUser(id);
-
-      const img = user.foto;
-
-      // return img;
-      return user;
-   }
+   edit = async(id) => await FormModel.findByIdAndUpdate(id, this.body, { new: true });
 
    delete = async(id) => await FormModel.findByIdAndDelete(id);
 };
 
 module.exports = Form;
-
 
 

@@ -1,21 +1,22 @@
 const express = require('express');
 const routes = express.Router();
 const homeContr = require('../controllers/homeContr.js');
-const formContr= require('../controllers/formContr.js');
+const publiContr = require('../controllers/publiContr.js');
 
 // Home
 routes.get('/', homeContr.index);
 
 // Contato
-routes.get('/contato', formContr.cont);
-routes.post('/pst', formContr.handlePost);
+routes.get('/create', publiContr.cont);
+routes.post('/create/apis/pst', publiContr.create);
 
-// Users
-routes.get('/users', formContr.users);
-routes.get('/apis/users/getUsr', formContr.getUsrs);
-routes.get('/delete/:id', formContr.delete);
-// routes.get('/api/imgs/:id', formContr.getImages);
+// Publis
+routes.get('/publis', publiContr.publis);
+routes.get('/publis/apis/publications', publiContr.getPublis);
+routes.get('/publi/apis/delete/:id', publiContr.delete);
+routes.get('/publi/apis/edit/', publiContr.edit);
+routes.get('/publi/apis/search/:id', publiContr.getOnePubli);
+routes.post('/publi/apis/edit/post/:id', publiContr.apiEdit);
 
 module.exports = routes;
-
 

@@ -30,18 +30,13 @@ export default function Header({ theme }) {
                   </a>
                </li>
                <li className="p-5">
-                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="">
-                     Sobre
+                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="/publis">
+                     Publicações
                   </a>
                </li>
                <li className="p-5">
-                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="">
-                     História
-                  </a>
-               </li>
-               <li className="p-5">
-                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="/contato">
-                     Contato
+                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="/create">
+                     Criar
                   </a>
                </li>
             </ul>

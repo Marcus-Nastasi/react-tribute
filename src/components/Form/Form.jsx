@@ -24,7 +24,7 @@ export default function Form() {
    };
 
    return(
-      <form action="/pst" method="post"
+      <form action="/create/apis/pst" method="post"
          className="flex justify-center p-10 px-0 rounded-md bg-slate-500">
 
          <section className="flex flex-col py-6 w-screen rounded-lg bg-slate-900 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12">
@@ -56,9 +56,11 @@ export default function Form() {
                </section>
 
                <section>
+
                   <button type="submit" className="my-3 p-3 px-6 text-lg font-semibold rounded-md text-slate-300 bg-slate-700">
                      Enviar
                   </button>
+                  
                </section>
 
             </section>

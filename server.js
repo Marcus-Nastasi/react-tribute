@@ -9,8 +9,8 @@ const bodyParser = require('body-parser');
 
 mongoose.connect(process.env.CONNECTIONSTR).then(() => app.emit('ok')).catch(e => console.log(e));
 
-app.use(bodyParser.json({ limit: '100mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 app.set('views', path.join(__dirname, 'dist'));
 app.engine('html', require('ejs').renderFile);

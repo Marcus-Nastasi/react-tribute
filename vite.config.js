@@ -10,8 +10,9 @@ export default defineConfig({
    rollupOptions: {
      input: {
          main: resolve(__dirname, 'index.html'),
-         users: resolve(__dirname, '/pages/users.html'), 
-         contact: resolve(__dirname, '/pages/contato.html')  
+         publi: resolve(__dirname, '/pages/publi.html'), 
+         create: resolve(__dirname, '/pages/create.html'),
+         edit: resolve(__dirname, '/pages/edit.html'),
       },
    },
  },

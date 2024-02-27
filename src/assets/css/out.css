@@ -556,6 +556,10 @@ video {
   top: 1.25rem;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .m-3 {
   margin: 0.75rem;
 }
@@ -577,8 +581,16 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-fit {
@@ -761,10 +773,6 @@ video {
   padding-bottom: 2rem;
 }
 
-.pl-6 {
-  padding-left: 1.5rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -800,6 +808,11 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 .text-slate-200 {

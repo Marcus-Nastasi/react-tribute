@@ -8,6 +8,14 @@ exports.users = async (req, res) => res.render('pages/users');
 // Cruds
 exports.handlePost = async (request, response) => {
    try {
+      // const imageData = request.body.foto;
+
+      // const imageBuffer = Buffer.from(imageData, "base64");
+
+      // request.body.foto = imageBuffer;
+
+      console.log(request.body);
+
       const FormContato = new Form(request.body);
 
       await FormContato.send();
@@ -18,7 +26,6 @@ exports.handlePost = async (request, response) => {
       return response.send('Erro');
    }
 };
-
 
 exports.getUsrs = async (req, res) => {
    try {
@@ -44,5 +51,20 @@ exports.delete = async (req, res) => {
       console.log(error);
       return res.redirect('/');
    }
+};
+
+
+exports.getImages = async(req, res) => {
+   const FormToGetImg = new Form(req.body);
+
+   const user = await FormToGetImg.getImages(req.params.id);
+
+   const encoded = user[0].foto;
+
+   console.log(encoded);
+
+   return res.send(`
+      <img src="${encoded}">
+   `);
 };
 

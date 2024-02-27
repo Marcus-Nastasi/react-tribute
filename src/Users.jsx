@@ -6,7 +6,7 @@ export default function Users() {
 
    const handle = async () => {
       try {
-         const response = await fetch('/getUsr');
+         const response = await fetch('/apis/users/getUsr');
 
          const data = await response.json();
 
@@ -35,10 +35,11 @@ export default function Users() {
 
                            <section>
                               Nome: {d.name} <br />
-                              E-mail: {d.email}
+                              E-mail: {d.email} <br />
+                              Img: <a href={`/api/imgs/${String(d._id)}`}>Link da Imagem</a>
                            </section>
 
-                           <section className='pl-6 hover:cursor-pointer'>
+                           <section className='ml-6 hover:cursor-pointer'>
                               <a href={`/delete/${d._id}`}>
                                  <FaTrash />
                               </a>

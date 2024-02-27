@@ -12,8 +12,9 @@ routes.post('/pst', formContr.handlePost);
 
 // Users
 routes.get('/users', formContr.users);
-routes.get('/getUsr', formContr.getUsrs);
+routes.get('/apis/users/getUsr', formContr.getUsrs);
 routes.get('/delete/:id', formContr.delete);
+routes.get('/api/imgs/:id', formContr.getImages);
 
 module.exports = routes;
 

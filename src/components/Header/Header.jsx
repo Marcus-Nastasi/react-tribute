@@ -1,4 +1,5 @@
 import React from "react";
+import { FaBars } from "react-icons/fa";
 import viteLogo from '../../../public/vite.svg';
 
 export default function Header({ theme }) {
@@ -11,7 +12,7 @@ export default function Header({ theme }) {
    }
 
    const userClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${userTheme}`;
-   const menuClasses = `flex flex-row text-2xl font-semibold transition-all ease-in-out duration-300 ${menu}`; 
+   const menuClasses = `flex flex-row text-2xl font-semibold transition-all ease-in-out duration-300 ${menu} md:flex`; 
 
    return(
       <header className={userClasses}>
@@ -24,6 +25,10 @@ export default function Header({ theme }) {
          </section>
 
          <section className="p-10">
+
+            <section className="text-3xl m-3">
+               <FaBars />
+            </section>
 
             <ul className={menuClasses}>
                <li className="p-5">

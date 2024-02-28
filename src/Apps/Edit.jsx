@@ -52,7 +52,7 @@ function Edit() {
 
             <label className="p-5 text-2xl" htmlFor="title">Novo título:</label>
             <input
-               placeholder={noteData.name}
+               placeholder={noteData.title}
                className="p-2 self-center font-semibold text-slate-900 rounded-sm bg-slate-100" 
                type="text" 
                name="title" 
@@ -61,7 +61,7 @@ function Edit() {
 
             <label className="p-5 text-2xl" htmlFor="email">Novo conteúdo:</label>
             <input 
-               placeholder={noteData.email} 
+               placeholder={noteData.content} 
                className="p-2 self-center font-semibold text-slate-900 rounded-sm bg-slate-100" 
                type="text" 
                name="content" 

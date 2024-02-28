@@ -18,14 +18,16 @@ export default function Header({ theme }) {
       <section className="flex flex-row justify-between">
 
          <section className="p-10">
-            <img className="w-12" src={viteLogo} alt="" />
+            <a href="/">
+               <img className="w-12" src={viteLogo} />
+            </a>
          </section>
 
          <section className="p-10">
 
             <ul className={menuClasses}>
                <li className="p-5">
-                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="">
+                  <a className="hover:text-blue-400 transition-all ease-in-out duration-500" href="/">
                      Home
                   </a>
                </li>

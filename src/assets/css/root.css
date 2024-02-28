@@ -1,1 +1,23 @@
 
+button.btnPubliAnimation {
+   animation-name: btnAnimation;
+   animation-duration: 500ms;
+   animation-play-state: paused;
+   transition: all ease-in-out 300ms;
+}
+
+@keyframes btnAnimation {
+   0% {
+      box-shadow: 0 0 0 0;
+   }
+
+   50% {
+      box-shadow: 0 0 2rem 0.1rem;
+   }
+
+   100% {
+      box-shadow: 0 0 0 0;
+   }
+}
+
+

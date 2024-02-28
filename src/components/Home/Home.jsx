@@ -24,6 +24,12 @@ export default function Home({ theme }) {
       handleFetch();
    }, []);
 
+   // function slide(e, flag) {
+   //    if(flag) {
+   //       e.target.style.marginLeft = '1000px';
+   //    };
+   // }
+
    let userTheme = 'bg-slate-900';
 
    (theme === 'light') ? userTheme = 'bg-slate-200' : 0;
@@ -39,7 +45,7 @@ export default function Home({ theme }) {
             </h1>
          </section>
 
-         <section className="flex justify-evenly flex-wrap w-9/12">
+         <section className="flex justify-evenly flex-wrap w-screen bg-red-200">
 
             {
 
@@ -61,9 +67,9 @@ export default function Home({ theme }) {
             <>
                {dados.map(dado => {
                   return(
-                     <>
+                     <section className="w-1/2 h-fit flex flex-col bg-slate-200">
                         <Post key={dado._id} bg={'bg-slate-100'} title={dado.title} content={dado.content} src={dado.base64} />
-                     </>
+                     </section>
                   );
                })}
             </>

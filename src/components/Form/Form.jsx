@@ -3,12 +3,16 @@ import React, { useState } from "react";
 export default function Form() {
    const [image, setImage] = useState('');
 
+   function handleClick(e) {
+      e.target.style.animationPlayState = 'running';
+   };
+
    async function handleFileUpload(e) {
       const file = e.target.files[0];
       const base64 = await convertToBase64(file);
 
       return setImage(String(base64));
-   }
+   };
 
    async function convertToBase64(file) {
       return new Promise((resolve, reject) => {
@@ -71,8 +75,9 @@ export default function Form() {
                <section className="flex justify-center w-full">
 
                   <button
+                     onClick={handleClick}
                      type="submit" 
-                     className="my-3 py-2 px-7 text-lg font-semibold rounded-md transition-all ease-in-out duration-300 text-slate-300 bg-slate-700 hover:bg-slate-900 hover:text-slate-100 hover:px-9">
+                     className="btnPubliAnimation my-3 py-2 px-7 text-lg font-semibold rounded-md transition-all ease-in-out duration-300 text-slate-300 bg-slate-700 hover:bg-slate-900 hover:text-slate-100 hover:px-9">
                      Enviar
                   </button>
 

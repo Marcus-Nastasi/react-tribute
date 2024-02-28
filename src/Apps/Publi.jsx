@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrash, FaPencilAlt } from 'react-icons/fa';
-import HashLoader from 'react-spinners/HashLoader';
 import Header from '../components/Header/Header';
 import Post from '../components/Post/Post';
+import BarLoader from 'react-spinners/BarLoader';
 
 export default function Users() {
    const [dados, setDados] = useState([]);
@@ -21,6 +21,7 @@ export default function Users() {
       };
 
       setLoading(true);
+
       try {
          const response = await fetch('/publis/apis/publications');
 
@@ -55,7 +56,7 @@ export default function Users() {
          ?
 
          <section className='flex justify-center w-screen h-fit mt-20'>
-            <HashLoader
+            <BarLoader
                cssOverride={true}
                color="#E2E8F0"
                size={60}
@@ -67,7 +68,7 @@ export default function Users() {
          <div className='flex flex-wrap justify-center rounded-md'>
             {dados.map(d => {
                return(
-                  <div className='p-3 w-1/2 rounded-lg'>
+                  <div className='p-3 w-fit rounded-lg'>
 
                      <ul className='flex'>
 
@@ -79,13 +80,13 @@ export default function Users() {
                               <a 
                                  className='m-2 text-slate-400 hover:text-slate-100' 
                                  href={`/publi/apis/edit/?id=${d._id}`}>
-                                 <FaPencilAlt />
+                                 <FaPencilAlt className='text-3xl' />
                               </a>
 
                               <a 
-                                 className=' text-slate-400 hover:text-slate-100' 
+                                 className='text-slate-400 hover:text-slate-100' 
                                  href={`/publi/apis/delete/${d._id}`}>
-                                 <FaTrash />
+                                 <FaTrash className='text-3xl' />
                               </a>
                            </section>
 

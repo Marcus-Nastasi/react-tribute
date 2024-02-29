@@ -18,6 +18,8 @@ app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use(express.json());
+
 app.use(routes);
 
 app.on('ok', () => app.listen(port, () => console.log('http://localhost:3003/')));

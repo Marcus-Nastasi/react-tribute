@@ -37,7 +37,7 @@ export default function Home({ theme }) {
    var userClasses = `flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${userTheme}`;
 
    return(
-      <main  className={userClasses}>
+      <main className={userClasses}>
 
          <section className="flex justify-center items-center w-screen mb-10">
             <h1 className="text-8xl font-bold text-slate-100">
@@ -45,7 +45,7 @@ export default function Home({ theme }) {
             </h1>
          </section>
 
-         <section className="flex justify-evenly flex-wrap w-screen bg-red-200">
+         <section className="flex justify-evenly flex-wrap w-screen">
 
             {
 
@@ -67,8 +67,8 @@ export default function Home({ theme }) {
             <>
                {dados.map(dado => {
                   return(
-                     <section className="w-1/2 h-fit flex flex-col bg-slate-200">
-                        <Post key={dado._id} bg={'bg-slate-100'} title={dado.title} content={dado.content} src={dado.base64} />
+                     <section className="w-screen h-fit flex flex-col">
+                        <Post key={dado._id} bg={'bg-slate-200'} title={dado.title} content={dado.content} src={dado.base64} />
                      </section>
                   );
                })}

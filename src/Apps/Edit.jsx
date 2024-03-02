@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Edit() {
+export default function Edit() {
    const [ image, setImage ] = useState('');
    const [ queryId, setQueryId ] = useState(null);
    const [ noteData, setNoteData ] = useState(0);
@@ -92,5 +92,5 @@ function Edit() {
    );
 };
 
-export default Edit;
+
 

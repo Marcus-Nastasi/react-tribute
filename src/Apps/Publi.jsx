@@ -37,6 +37,7 @@ export default function Users() {
 
    return (
       <div className='flex flex-col items-center w-screen min-h-screen max-h-fit bg-slate-900'>
+
          <Header />
 
          <h1 className='p-16 text-6xl font-semibold text-slate-100'>
@@ -65,12 +66,12 @@ export default function Users() {
 
          :
             
-         <div className='flex flex-wrap justify-center rounded-md'>
+         <div className='flex flex-wrap justify-center rounded-md md:p-3 lg:p-4 xl:p-5'>
             {dados.map(d => {
                return(
-                  <div className='p-3 w-fit rounded-lg'>
+                  <div className='p-3 w-fit rounded-lg md:w-5/6 lg:w-1/2 xl:w-2/6'>
 
-                     <ul className='flex'>
+                     <ul className='flex xl:flex-col'>
 
                         <li key={d._id} className='flex justify-center text-lg font-semibold text-slate-900'>
 

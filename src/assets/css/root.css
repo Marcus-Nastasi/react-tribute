@@ -1,3 +1,6 @@
+* {
+   transition: all ease-in-out 300ms;
+}
 
 button.btnPubliAnimation {
    animation-name: btnAnimation;

@@ -12,7 +12,7 @@ function App() {
    return (
       <section className='overflow-x-hidden'>
 
-         <section className='absolute top-5 right-5'>
+         <section className='absolute top-4 right-5'>
             <FaCircleHalfStroke onClick={handleTheme} className='text-3xl p-1 hover:cursor-pointer' />
          </section>
 

@@ -24,17 +24,13 @@ export default function Home({ theme }) {
       handleFetch();
    }, []);
 
-   // function slide(e, flag) {
-   //    if(flag) {
-   //       e.target.style.marginLeft = '1000px';
-   //    };
-   // }
-
    let userTheme = 'bg-slate-900';
 
    (theme === 'light') ? userTheme = 'bg-slate-200' : 0;
 
-   var userClasses = `flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${userTheme}`;
+   var userClasses = `
+      flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${userTheme}
+   `;
 
    return(
       <main className={userClasses}>
@@ -67,8 +63,14 @@ export default function Home({ theme }) {
             <>
                {dados.map(dado => {
                   return(
-                     <section className="w-screen h-fit flex flex-col">
-                        <Post key={dado._id} bg={'bg-slate-200'} title={dado.title} content={dado.content} src={dado.base64} />
+                     <section className="w-screen h-fit flex flex-col md:w-1/2 xl:w-2/6">
+                        <Post 
+                           key={dado._id} 
+                           bg={'bg-slate-200'} 
+                           title={dado.title} 
+                           content={dado.content} 
+                           src={dado.base64} 
+                        />
                      </section>
                   );
                })}

@@ -3,7 +3,7 @@ import HashLoader from "react-spinners/HashLoader";
 import Post from "../Post/Post";
 
 export default function Home({ theme }) {
-   const [dados, setDados] = useState([]);
+   const [ dados, setDados ] = useState([]);
    const [ loading, setLoading ] = useState(false);
 
    useEffect(() => {
@@ -64,7 +64,7 @@ export default function Home({ theme }) {
                {dados.map(dado => {
                   return(
                      <section className="w-screen h-fit flex flex-col md:w-1/2 xl:w-2/6">
-                        <Post 
+                        <Post
                            key={dado._id} 
                            bg={'bg-slate-200'} 
                            title={dado.title} 

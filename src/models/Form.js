@@ -9,6 +9,7 @@ const FormSchema = new mongoose.Schema({
 const FormModel = mongoose.model('publications', FormSchema);
 
 class Form {
+
    constructor(body) {
       this.body = body;
    }

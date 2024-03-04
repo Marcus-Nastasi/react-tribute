@@ -44,7 +44,7 @@ exports.getOnePubli = async(req, res) => {
 
       const singlePubli = await Publis.getSinglePubli(req.params.id);
 
-      return res.send(JSON.stringify(singlePubli));
+      return res.send(singlePubli);
    } catch(error) {
       console.log('erro', error);
       return res.send(`Erro: ${error}`);

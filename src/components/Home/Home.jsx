@@ -49,14 +49,14 @@ export default function Home({ theme }) {
 
             ?
 
-            <section className="mt-36">
-               <HashLoader
-                  cssOverride={true}
-                  color="#E2E8F0"
-                  size={60}
-                  loading={loading}
-               /> 
-            </section>
+               <section className="mt-36">
+                  <HashLoader
+                     cssOverride={true}
+                     color="#E2E8F0"
+                     size={60}
+                     loading={loading}
+                  /> 
+               </section>
 
             :
 

@@ -8,25 +8,24 @@ button.btnPubliAnimation {
    animation-play-state: paused;
    transition: all ease-in-out 300ms;
 }
-
 @keyframes btnAnimation {
    0% {
       box-shadow: 0 0 0 0;
    }
-
    50% {
       box-shadow: 0 0 2rem 0.1rem;
    }
-
    100% {
       box-shadow: 0 0 0 0;
    }
 }
 
-
 /* Post */
-
+.imgHover {
+   border-radius: 7px;
+}
 .imgHover:hover {
-   box-shadow: 0 0 5rem 0.1rem inset;
+   box-shadow: 0 0 2rem 0.1rem;
+   cursor: pointer;
 }
 

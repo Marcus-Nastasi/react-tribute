@@ -77,17 +77,16 @@ export default function Users() {
 
                            <Post bg={'bg-slate-200'} title={d.title} content={d.content} src={d.base64}  />
 
-                           <section className='ml-6 hover:cursor-pointer'>
+                           <section className='ml-6'>
                               <a 
-                                 className='m-2 text-slate-400 hover:text-slate-100' 
+                                 className='m-2'
                                  href={`/publi/apis/edit/?id=${d._id}`}>
-                                 <FaPencilAlt className='text-3xl' />
+                                 <FaPencilAlt className='text-2xl transition-all ease-in-out duration-0 text-slate-400 hover:text-slate-100 hover:cursor-pointer' />
                               </a>
 
-                              <a 
-                                 className='text-slate-400 hover:text-slate-100' 
+                              <a
                                  href={`/publi/apis/delete/${d._id}`}>
-                                 <FaTrash className='text-3xl' />
+                                 <FaTrash className='text-2xl transition-all ease-in-out duration-0 text-slate-400 hover:text-slate-100 hover:cursor-pointer' />
                               </a>
                            </section>
 

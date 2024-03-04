@@ -1,30 +1,29 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { CircleLoader } from 'react-spinners';
 
 export default function Edit() {
    const [ image, setImage ] = useState('');
-   const [ queryId, setQueryId ] = useState(null);
-   const [ noteData, setNoteData ] = useState(0);
+   const [ noteData, setNoteData ] = useState('');
+   const [ loading, setLoading ] = useState(false);
   
    useEffect(() => {
       async function getId() {
          const searchParams = new URLSearchParams(window.location.search);
-
          const id = searchParams.get('id');
-         
-         setQueryId(id);
+         return getData(id);
       };
       getId();
+
+      async function getData(queryId) { 
+         setLoading(true);
+         const note = await fetch(`/publi/apis/search/${queryId}`);
+         const nt = await note.json();      
+         setLoading(false);
+
+         return setNoteData(nt[0]);
+      };
    }, []);
-
-   async function handleInputs() {
-      const note = await fetch(`/publi/apis/search/${queryId}`);
-      const nt = await note.json();
-
-      setNoteData(nt[0]);
-
-      return noteData;
-   };
 
    async function handleFileUpload(e) {
       const file = e.target.files[0];
@@ -45,10 +44,25 @@ export default function Edit() {
    };
 
    return(
-      <section onMouseOver={handleInputs}
+      <section
        className="flex flex-col min-h-screen max-h-fit px-5 py-10 bg-slate-400">
 
-         <form method="post" action={`/publi/apis/edit/post/${noteData._id}`} className="flex justify-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-600 text-slate-100 bg-slate-900">
+         {
+            loading
+            ?
+            <>
+               <section className="flex justify-center w-screen h-screen mt-52 overflow-x-hidden font-semibold text-6xl">
+                  
+                  <CircleLoader
+                     cssOverride={true}
+                     size={120}
+                     color="#000f94"
+                  />
+                  
+               </section>
+            </>
+            :
+            <form method="post" action={`/publi/apis/edit/post/${noteData._id}`} className="flex justify-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-600 text-slate-100 bg-slate-900">
 
             <label className="p-5 text-2xl" htmlFor="title">Novo título:</label>
             <input
@@ -86,7 +100,8 @@ export default function Edit() {
                Send
             </button>
 
-         </form>
+            </form>
+         }
 
       </section>
    );

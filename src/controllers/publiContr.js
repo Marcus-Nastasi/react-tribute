@@ -20,8 +20,7 @@ exports.create = async (req, res) => {
       
       return res.redirect('/publis');
    } catch(error) {
-      console.log(error);
-      return res.send('Erro');
+      return res.status(500).json({ erro: error });
    }
 };
 
@@ -33,8 +32,7 @@ exports.getPublis = async (req, res) => {
       
       return res.json(data);
    } catch(error) {
-      console.log(error);
-      return res.status(500).json({ error: 'Erro ao buscar os dados' });
+      return res.status(500).json({ erro: error });
    }
 };
 
@@ -44,19 +42,22 @@ exports.getOnePubli = async(req, res) => {
 
       const singlePubli = await Publis.getSinglePubli(req.params.id);
 
-      return res.send(singlePubli);
+      return res.json(singlePubli);
    } catch(error) {
-      console.log('erro', error);
-      return res.send(`Erro: ${error}`);
+      return res.status(500).json({ erro: error });
    }
 };
 
 exports.apiEdit = async(req, res) => {
-   const FormEdit = new Form(req.body);
+   try {
+      const FormEdit = new Form(req.body);
 
-   await FormEdit.edit(req.params.id);
-   
-   return res.redirect('/publis');
+      await FormEdit.edit(req.params.id);
+      
+      return res.redirect('/publis');
+   } catch (error) {
+      return res.status(500).json({ erro: error });
+   }
 };
 
 exports.delete = async (req, res) => {
@@ -67,8 +68,7 @@ exports.delete = async (req, res) => {
 
       return res.redirect('/publis'); 
    } catch(error) {
-      console.log(error);
-      return res.redirect('/');
+      return res.status(500).json({ erro: error });
    }
 };
 

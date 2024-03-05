@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import HashLoader from "react-spinners/HashLoader";
+import { BarLoader } from "react-spinners";
 import Post from "../Post/Post";
 
 export default function Home({ theme }) {
@@ -50,7 +50,7 @@ export default function Home({ theme }) {
             ?
 
                <section className="mt-36">
-                  <HashLoader
+                  <BarLoader
                      cssOverride={true}
                      color="#E2E8F0"
                      size={60}

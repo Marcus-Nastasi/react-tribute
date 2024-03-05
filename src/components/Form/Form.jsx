@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../Button/Button";
 
 export default function Form() {
    const [image, setImage] = useState('');
@@ -72,14 +73,12 @@ export default function Form() {
 
                </section>
 
-               <section className="flex justify-center w-full">
+               <section className="flex justify-center w-full -mb-12">
 
-                  <button
-                     onClick={handleClick}
-                     type="submit" 
-                     className="btnPubliAnimation my-3 py-2 px-7 text-lg font-semibold rounded-md transition-all ease-in-out duration-300 text-slate-300 bg-slate-700 hover:bg-slate-900 hover:text-slate-100 hover:px-9">
-                     Enviar
-                  </button>
+                  <Button
+                     title={'Enviar'} 
+                     func={handleClick} 
+                  />
 
                </section>
 

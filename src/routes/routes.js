@@ -6,7 +6,7 @@ const publiContr = require('../controllers/publiContr.js');
 // Home
 routes.get('/', homeContr.index);
 
-// Contato
+// Criação
 routes.get('/create', publiContr.createPg);
 routes.post('/create/apis/pst', publiContr.create);
 

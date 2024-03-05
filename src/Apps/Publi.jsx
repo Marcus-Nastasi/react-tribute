@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaTrash, FaPencilAlt } from 'react-icons/fa';
 import Header from '../components/Header/Header';
 import Post from '../components/Post/Post';
+import Button from '../components/Button/Button';
 import BarLoader from 'react-spinners/BarLoader';
 
 export default function Users() {
@@ -44,11 +45,10 @@ export default function Users() {
             Publicações
          </h1>
 
-         <button 
-            className='btnPubliAnimation px-10 py-2 mb-20 font-semibold rounded-md bg-slate-700 text-slate-200 hover:bg-slate-800 hover:text-slate-50 hover:px-12 ' 
-            onClick={handleClick}>
-            Atualizar
-         </button>
+         <Button 
+            title={'Atualizar'} 
+            func={handleClick} 
+         />
 
          {
          

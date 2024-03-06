@@ -24,31 +24,31 @@ export default function Home({ theme }) {
       handleFetch();
    }, []);
 
-   let userTheme = 'bg-slate-900';
+   let [ menuThemes, textHome, postBg ] = [ 'bg-slate-900', 'text-slate-100', 'bg-slate-200' ];
 
-   (theme === 'light') ? userTheme = 'bg-slate-200' : 0;
+   if(theme === 'light') {
+      menuThemes = 'bg-slate-200';
+      textHome = 'text-slate-700';
+      postBg = 'bg-slate-400 text-slate-100'
+   };
 
-   var userClasses = `
-      flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${userTheme}
+   let menuclasses = `
+      flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${menuThemes}
    `;
 
    return(
-      <main className={userClasses}>
+      <main className={menuclasses}>
 
-         <section className="flex justify-center items-center w-screen mb-10">
-            <h1 className="text-8xl font-bold text-slate-100">
+         <section className="flex justify-center items-center w-screFeeden mb-10">
+            <h1 className={`text-8xl font-bold ${textHome}`}>
                Feed
             </h1>
          </section>
 
          <section className="flex justify-evenly flex-wrap w-screen">
-
             {
-
             loading
-
             ?
-
                <section className="mt-36">
                   <BarLoader
                      cssOverride={true}
@@ -57,16 +57,14 @@ export default function Home({ theme }) {
                      loading={loading}
                   /> 
                </section>
-
             :
-
             <>
                {dados.map(dado => {
                   return(
                      <section className="w-screen h-fit flex flex-col md:w-1/2 xl:w-2/6">
                         <Post
                            key={dado._id} 
-                           bg={'bg-slate-200'} 
+                           bg={postBg} 
                            title={dado.title} 
                            content={dado.content} 
                            src={dado.base64} 
@@ -75,11 +73,8 @@ export default function Home({ theme }) {
                   );
                })}
             </>
-
             }
-
          </section>
-
       </main>
    );
 };

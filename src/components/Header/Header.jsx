@@ -4,26 +4,30 @@ import { FaBars } from "react-icons/fa";
 import viteLogo from '../../../public/vite.svg';
 
 export default function Header({ theme }) {
-   const [ menu, setMenu ] = useState('hidden'); 
+   const [ menu, setMenu ] = useState('hidden');
 
-   let userTheme = 'bg-slate-300';
-   let menuTxColor = 'text-slate-600';
+   let [ userTheme, menuColors ] = [ 'bg-slate-300', 'text-slate-600 bg-slate-300' ]
 
    if(theme === 'light') {
       userTheme = 'bg-slate-500';
-      menuTxColor = 'text-slate-50';
+      menuColors = 'text-slate-50 bg-slate-500';
    }
 
-   const userClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${userTheme}`;
-   const menuClasses = `${menu} flex flex-col absolute top-22 right-6 text-xl font-semibold rounded-sm bg-slate-300 transition-all ease-in-out duration-300 ${menuTxColor} md:flex md:flex-row md:text-2xl md:sticky)`;
-   
+   const headerClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${userTheme}`;
+
+   const menuClasses = `
+      ${menu} flex flex-col absolute top-22 right-6 text-xl font-semibold 
+      rounded-sm transition-all ease-in-out duration-300 ${menuColors}
+      md:flex md:flex-row md:text-2xl md:sticky)
+   `;
+
    function handleMenu() {
       if(menu === 'hidden') return setMenu('');
       return setMenu('hidden');
    };
 
    return(
-      <header className={userClasses}>
+      <header className={headerClasses}>
          <section className="flex flex-row justify-between">
 
             <section className="p-10">

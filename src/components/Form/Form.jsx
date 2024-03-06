@@ -4,9 +4,7 @@ import Button from "../Button/Button";
 export default function Form() {
    const [image, setImage] = useState('');
 
-   function handleClick(e) {
-      e.target.style.animationPlayState = 'running';
-   };
+   const handleClick = e => e.target.style.animationPlayState = 'running';
 
    async function handleFileUpload(e) {
       const file = e.target.files[0];

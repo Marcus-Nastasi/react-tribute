@@ -8,7 +8,7 @@ export default function Edit() {
    const [ image, setImage ] = useState('');
    const [ noteData, setNoteData ] = useState('');
    const [ loading, setLoading ] = useState(false);
-  
+
    useEffect(() => {
       function getId() {
          const searchParams = new URLSearchParams(window.location.search);
@@ -53,7 +53,7 @@ export default function Edit() {
             loading
 
             ?
-            
+
             <>
                <section className="flex justify-center w-screen h-screen mt-52 overflow-x-hidden font-semibold text-6xl">
                   
@@ -65,7 +65,7 @@ export default function Edit() {
                   
                </section>
             </>
-            
+
             :
 
             <>
@@ -83,16 +83,20 @@ export default function Edit() {
                   className="flex flex-col w-11/12 mt-20 justify-center items-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-900 text-slate-100 bg-slate-800"
                >
 
-                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="title">Novo título:</label>
+                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="title">
+                     Novo título:
+                  </label>
                   <input
                      placeholder={noteData.title}
-                     className="p-2 w-10/12 self-center font-semibold text-slate-900 rounded-sm bg-slate-100  md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
+                     className="p-2 w-10/12 self-center font-semibold text-slate-900 rounded-sm bg-slate-100 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
                      type="text" 
                      name="title" 
                      id="title" 
                   />
 
-                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="content">Novo conteúdo:</label>
+                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="content">
+                     Novo conteúdo:
+                  </label>
                   <input 
                      placeholder={noteData.content} 
                      className="p-2 w-10/12 self-center font-semibold text-slate-900 rounded-sm bg-slate-100 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
@@ -101,10 +105,12 @@ export default function Edit() {
                      id="content" 
                   />
 
-                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="foto">Nova imagem:</label>
+                  <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="foto">
+                     Nova imagem:
+                  </label>
                   <input
                      onChange={handleFileUpload}
-                     className="p-2 w-10/12 self-center font-semibold text-slate-100 rounded-sm  md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
+                     className="p-2 w-10/12 self-center font-semibold text-slate-100 rounded-sm md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
                      type="file" 
                      name="foto" 
                      id="foto" 
@@ -122,6 +128,7 @@ export default function Edit() {
       </section>
    );
 };
+
 
 
 

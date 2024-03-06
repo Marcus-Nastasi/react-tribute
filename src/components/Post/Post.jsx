@@ -27,7 +27,7 @@ export default function Post({ bg, title, content, src }) {
             </div>
          </section>
 
-         <h1 className="text-5xl pb-7 pt-5">{title}</h1>
+         <h1 className="text-5xl pb-7 pt-5 font-semibold">{title}</h1>
 
          <p className="text-lg mb-10">{content}</p>
          

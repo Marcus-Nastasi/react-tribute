@@ -21,6 +21,13 @@ export default function Cont() {
       return localStorage.setItem('theme', 'def');
    }
 
+   let [ mainBg, textCreate ] = [ 'bg-slate-900', 'text-slate-100' ];
+
+   if(theme === 'light') {
+      mainBg = 'bg-slate-200';
+      textCreate = 'text-slate-700';
+   };
+
    return(
       <>
          <section className='absolute top-4 right-5'>
@@ -29,13 +36,13 @@ export default function Cont() {
 
          <Header theme={theme} />
 
-         <section className="min-h-screen max-h-fit bg-slate-900">
+         <section className={`min-h-screen max-h-fit ${mainBg}`}>
 
             <section className="p-10 py-16 text-center text-5xl font-semibold font-sans">
-               <h1 className="text-6xl text-slate-100">Criar publicação</h1>
+               <h1 className={`text-6xl ${textCreate}`}>Criar publicação</h1>
             </section>
 
-            <Form />
+            <Form theme={theme} />
 
          </section>
       </>

@@ -9,7 +9,7 @@ import BarLoader from 'react-spinners/BarLoader';
 export default function Users() {
    const [theme, setTheme] = useState('def');
    const [dados, setDados] = useState([]);
-   const [ loading, setLoading ] = useState(false);
+   const [loading, setLoading] = useState(false);
 
    useEffect(() => {
       async function load() {
@@ -20,6 +20,7 @@ export default function Users() {
       const getTheme = () => (localStorage.getItem('theme')) ? setTheme(localStorage.getItem('theme')) : 0;
       getTheme();
    }, []);
+   // 
 
    async function handleClick(e) {
       if(e) {
@@ -30,7 +31,6 @@ export default function Users() {
 
       try {
          const response = await fetch('/publis/apis/publications');
-
          const data = await response.json();
 
          setLoading(false);
@@ -51,8 +51,24 @@ export default function Users() {
       return localStorage.setItem('theme', 'def');
    };
 
+   let [ superDivBg, textPubli, postBg, loaderColor, iconsColor ] = [
+      'bg-slate-900', 
+      'text-slate-300',
+      'bg-slate-400',
+      '#E2E8F0',
+      'text-slate-400 hover:text-slate-100'
+   ];
+
+   if(theme === 'light') {
+      superDivBg = 'bg-slate-200';
+      textPubli = 'text-slate-700';
+      postBg = 'bg-slate-500 text-slate-100';
+      loaderColor = '#000000',
+      iconsColor = 'text-slate-500 hover:text-slate-700'
+   };
+
    return (
-      <div className='flex flex-col items-center w-screen min-h-screen max-h-fit bg-slate-900'>
+      <div className={`flex flex-col items-center w-screen min-h-screen max-h-fit overflow-x-hidden ${superDivBg}`}>
 
          <section className='absolute top-4 right-5'>
             <FaCircleHalfStroke onClick={handleTheme} className='text-3xl p-1 hover:cursor-pointer' />
@@ -60,7 +76,7 @@ export default function Users() {
 
          <Header theme={theme} />
 
-         <h1 className='p-16 text-6xl font-semibold text-slate-100'>
+         <h1 className={`p-16 text-3xl font-semibold ${textPubli} md:text-4xl lg:text-5xl xl:text-6xl`}>
             Publicações
          </h1>
 
@@ -70,56 +86,52 @@ export default function Users() {
          />
 
          {
-         
-         loading 
-         
+         loading
          ?
-
-         <section className='flex justify-center w-screen h-fit mt-20'>
-            <BarLoader
-               cssOverride={true}
-               color="#E2E8F0"
-               size={60}
-            />
-         </section>
-
+            <section className='flex justify-center w-screen h-fit mt-20'>
+               <BarLoader
+                  cssOverride={true}
+                  color={loaderColor}
+                  size={60}
+               />
+            </section>
          :
-            
-         <div className='flex flex-wrap justify-center rounded-md md:p-3 lg:p-4 xl:p-5'>
-            {dados.map(d => {
-               return(
-                  <div className='p-3 w-fit rounded-lg md:w-5/6 lg:w-1/2 xl:w-2/6'>
+            <div className='flex flex-wrap justify-center rounded-md md:p-3 lg:p-4 xl:p-5'>
+               {dados.map(d => {
+                  return(
+                     <div className='p-3 w-full rounded-lg md:w-5/6 lg:w-1/2 xl:w-2/6'>
+                        <ul className='flex justify-center xl:flex-col'>
 
-                     <ul className='flex xl:flex-col'>
+                           <li key={d._id} className='flex flex-col-reverse justify-center text-lg font-semibold text-slate-900 md:flex-row'>
+                              <Post 
+                                 bg={postBg} 
+                                 title={d.title} 
+                                 content={d.content} 
+                                 src={d.base64}  
+                              />
 
-                        <li key={d._id} className='flex justify-center text-lg font-semibold text-slate-900'>
+                              <section className='flex ml-6 md:flex-col'>
+                                 <a className='m-2 -mb-10 md:mb-2' href={`/publi/apis/edit/?id=${d._id}`}>
+                                    <FaPencilAlt 
+                                       className={`text-2xl transition-all ease-in-out duration-0 ${iconsColor} hover:cursor-pointer`} 
+                                    />
+                                 </a>
 
-                           <Post bg={'bg-slate-200'} title={d.title} content={d.content} src={d.base64}  />
+                                 <a className='m-2 -mb-10 md:mb-0' href={`/publi/apis/delete/${d._id}`}>
+                                    <FaTrash 
+                                       className={`text-2xl transition-all ease-in-out duration-0 ${iconsColor} hover:cursor-pointer`} 
+                                    />
+                                 </a>
+                              </section>
 
-                           <section className='ml-6'>
-                              <a 
-                                 className='m-2'
-                                 href={`/publi/apis/edit/?id=${d._id}`}>
-                                 <FaPencilAlt className='text-2xl transition-all ease-in-out duration-0 text-slate-400 hover:text-slate-100 hover:cursor-pointer' />
-                              </a>
+                           </li>
 
-                              <a
-                                 href={`/publi/apis/delete/${d._id}`}>
-                                 <FaTrash className='text-2xl transition-all ease-in-out duration-0 text-slate-400 hover:text-slate-100 hover:cursor-pointer' />
-                              </a>
-                           </section>
-
-                        </li>
-
-                     </ul>
-
-                  </div> 
-               );
-            })}
-         </div>
-
+                        </ul>
+                     </div> 
+                  );
+               })}
+            </div>
          }
-
       </div>
    );
 };

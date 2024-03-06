@@ -21,10 +21,7 @@ export default function Header({ theme }) {
       md:flex md:flex-row md:text-2xl md:sticky)
    `;
 
-   function handleMenu() {
-      if(menu === 'hidden') return setMenu('');
-      return setMenu('hidden');
-   };
+   const handleMenu = () => (menu === 'hidden') ? setMenu('') : setMenu('hidden');
 
    return(
       <header className={headerClasses}>

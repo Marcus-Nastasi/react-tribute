@@ -26,8 +26,8 @@ export default function Home({ theme }) {
 
    let [ menuThemes, textHome, postBg, loaderColor ] = [ 
       'bg-slate-900', 
-      'text-slate-100', 
-      'bg-slate-200', 
+      'text-slate-300', 
+      'bg-slate-400',
       '#E2E8F0' 
    ];
 

@@ -24,16 +24,23 @@ export default function Home({ theme }) {
       handleFetch();
    }, []);
 
-   let [ menuThemes, textHome, postBg ] = [ 'bg-slate-900', 'text-slate-100', 'bg-slate-200' ];
+   let [ menuThemes, textHome, postBg, loaderColor ] = [ 
+      'bg-slate-900', 
+      'text-slate-100', 
+      'bg-slate-200', 
+      '#E2E8F0' 
+   ];
 
    if(theme === 'light') {
       menuThemes = 'bg-slate-200';
       textHome = 'text-slate-700';
-      postBg = 'bg-slate-400 text-slate-100'
+      postBg = 'bg-slate-500 text-slate-100';
+      loaderColor = '#000000'
    };
 
    let menuclasses = `
-      flex flex-col items-center pt-10 min-h-screen max-h-fit transition-all ease-in-out duration-500 ${menuThemes}
+      flex flex-col items-center pt-10 min-h-screen max-h-fit 
+      transition-all ease-in-out duration-500 ${menuThemes}
    `;
 
    return(
@@ -52,7 +59,7 @@ export default function Home({ theme }) {
                <section className="mt-36">
                   <BarLoader
                      cssOverride={true}
-                     color="#E2E8F0"
+                     color={loaderColor}
                      size={60}
                      loading={loading}
                   /> 

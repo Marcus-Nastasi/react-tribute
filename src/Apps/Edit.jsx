@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import Button from "../components/Button/Button";
 import Header from '../components/Header/Header';
 import { BarLoader } from 'react-spinners';
+import { FaCircleHalfStroke } from "react-icons/fa6";
 
 export default function Edit() {
+   const [theme, setTheme] = useState('def');
    const [ image, setImage ] = useState('');
    const [ noteData, setNoteData ] = useState('');
    const [ loading, setLoading ] = useState(false);
@@ -25,6 +27,9 @@ export default function Edit() {
 
          return setNoteData(nt[0]);
       };
+
+      const getTheme = () => (localStorage.getItem('theme')) ? setTheme(localStorage.getItem('theme')) : 0;
+      getTheme();
    }, []);
 
    async function handleFileUpload(e) {
@@ -44,6 +49,16 @@ export default function Edit() {
          };
       });
    };
+
+   function handleTheme() {
+      if(theme === 'def') {
+         setTheme('light');
+         return localStorage.setItem('theme', 'light');
+      };
+
+      setTheme('def');
+      return localStorage.setItem('theme', 'def');
+   }
 
    return(
       <section
@@ -70,7 +85,11 @@ export default function Edit() {
 
             <>
                <section>
-                  <Header />
+                  <section className='absolute top-4 right-5'>
+                     <FaCircleHalfStroke onClick={handleTheme} className='text-3xl p-1 hover:cursor-pointer' />
+                  </section>
+                  
+                  <Header theme={theme} />
                </section>
 
                <section className="mt-16">

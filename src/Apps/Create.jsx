@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Form from '../components/Form/Form';
 import Header from '../components/Header/Header';
+import { FaCircleHalfStroke } from "react-icons/fa6";
 
 export default function Cont() {
+   const [theme, setTheme] = useState('def');
+
+   useEffect(() => {
+      const getTheme = () => (localStorage.getItem('theme')) ? setTheme(localStorage.getItem('theme')) : 0;
+      getTheme();
+   });
+
+   function handleTheme() {
+      if(theme === 'def') {
+         setTheme('light');
+         return localStorage.setItem('theme', 'light');
+      };
+
+      setTheme('def');
+      return localStorage.setItem('theme', 'def');
+   }
+
    return(
       <>
-         <Header />
+         <section className='absolute top-4 right-5'>
+            <FaCircleHalfStroke onClick={handleTheme} className='text-3xl p-1 hover:cursor-pointer' />
+         </section>
+
+         <Header theme={theme} />
 
          <section className="min-h-screen max-h-fit bg-slate-900">
 

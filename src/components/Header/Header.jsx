@@ -6,14 +6,14 @@ import viteLogo from '../../../public/vite.svg';
 export default function Header({ theme }) {
    const [ menu, setMenu ] = useState('hidden');
 
-   let [ userTheme, menuColors ] = [ 'bg-slate-300', 'text-slate-600 bg-slate-300' ]
+   let [ headerBg, menuColors ] = [ 'bg-slate-500', 'text-slate-800 bg-slate-500' ]
 
    if(theme === 'light') {
-      userTheme = 'bg-slate-500';
-      menuColors = 'text-slate-50 bg-slate-500';
+      headerBg = 'bg-slate-300';
+      menuColors = 'text-slate-500 bg-slate-300';
    }
 
-   const headerClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${userTheme}`;
+   const headerClasses = `h-fit w-screen transition-all ease-in-out duration-500 ${headerBg}`;
 
    const menuClasses = `
       ${menu} flex flex-col absolute top-22 right-6 text-xl font-semibold 

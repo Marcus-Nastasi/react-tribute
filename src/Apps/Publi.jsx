@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrash, FaPencilAlt } from 'react-icons/fa';
+import { FaCircleHalfStroke } from "react-icons/fa6";
 import Header from '../components/Header/Header';
 import Post from '../components/Post/Post';
 import Button from '../components/Button/Button';
 import BarLoader from 'react-spinners/BarLoader';
 
 export default function Users() {
+   const [theme, setTheme] = useState('def');
    const [dados, setDados] = useState([]);
    const [ loading, setLoading ] = useState(false);
 
@@ -14,6 +16,9 @@ export default function Users() {
          return await handleClick();
       };
       load();
+
+      const getTheme = () => (localStorage.getItem('theme')) ? setTheme(localStorage.getItem('theme')) : 0;
+      getTheme();
    }, []);
 
    async function handleClick(e) {
@@ -36,10 +41,24 @@ export default function Users() {
       }
    };
 
+   function handleTheme() {
+      if(theme === 'def') {
+         setTheme('light');
+         return localStorage.setItem('theme', 'light');
+      };
+
+      setTheme('def');
+      return localStorage.setItem('theme', 'def');
+   };
+
    return (
       <div className='flex flex-col items-center w-screen min-h-screen max-h-fit bg-slate-900'>
 
-         <Header />
+         <section className='absolute top-4 right-5'>
+            <FaCircleHalfStroke onClick={handleTheme} className='text-3xl p-1 hover:cursor-pointer' />
+         </section>
+
+         <Header theme={theme} />
 
          <h1 className='p-16 text-6xl font-semibold text-slate-100'>
             Publicações

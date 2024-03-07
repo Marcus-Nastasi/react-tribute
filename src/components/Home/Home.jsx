@@ -47,7 +47,7 @@ export default function Home({ theme }) {
       <main className={menuclasses}>
 
          <section className="flex justify-center items-center w-screFeeden mb-10">
-            <h1 className={`text-8xl font-bold ${textHome}`}>
+            <h1 className={`text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl ${textHome}`}>
                Feed
             </h1>
          </section>

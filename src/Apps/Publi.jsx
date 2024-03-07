@@ -56,7 +56,7 @@ export default function Users() {
       'text-slate-300',
       'bg-slate-400',
       '#E2E8F0',
-      'text-slate-400 hover:text-slate-100'
+      'text-slate-400 hover:text-slate-100',
    ];
 
    if(theme === 'light') {
@@ -82,7 +82,7 @@ export default function Users() {
 
          <Button 
             title={'Atualizar'} 
-            func={handleClick} 
+            func={handleClick}
          />
 
          {

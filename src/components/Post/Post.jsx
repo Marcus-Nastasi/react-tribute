@@ -15,14 +15,12 @@ export default function Post({ bg, title, content, src }) {
 
          <section className={`${imgHidden} flex items-center justify-center grow w-screen overflow-x-hidden fixed top-0 left-0 bg-slate-900 bg-opacity-60`}>
             <div className="fixed top-6 right-6">
-
                <FaX 
                   className="text-3xl font-semibold text-slate-600 hover:text-slate-50 hover:cursor-pointer transition-all ease-in-out duration-0" 
                />
-
             </div>
 
-            <div className="flex items-center justify-center w-7/12 h-screen">
+            <div className="flex items-center justify-center w-full h-screen md:w-11/12 lg:w-9/12 xl:w-7/12">
                <img src={src} />
             </div>
          </section>
@@ -31,7 +29,7 @@ export default function Post({ bg, title, content, src }) {
 
          <p className="text-sm mb-10 sm:text-lg lg:text-xl">{content}</p>
          
-         <img onClick={handleImgClick} className="imgHover w-58)" src={src} />
+         <img onClick={handleImgClick} className="imgHover" src={src} />
       </section>
    );
 };

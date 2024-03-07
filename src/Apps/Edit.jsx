@@ -66,18 +66,20 @@ export default function Edit() {
       return localStorage.setItem('theme', 'def');
    }
 
-   let [ mainBg, formBg, textEdit, textForm ] = [ 
+   let [ mainBg, formBg, textEdit, textForm, loadingColor ] = [ 
       'bg-slate-900',
       'bg-slate-800',
       'text-slate-100', 
       'text-slate-200',
+      'white'
    ];
 
    if(theme === 'light') {
       mainBg = 'bg-slate-200';
-      formBg = 'bg-slate-500'
+      formBg = 'bg-slate-400'
       textEdit = 'text-slate-700';
       textForm = 'text-slate-700';
+      loadingColor = 'gray'
    };
 
    return(
@@ -86,23 +88,17 @@ export default function Edit() {
       >
          {
             loading
-
             ?
-
             <>
                <section className="flex justify-center w-screen h-screen mt-52 overflow-x-hidden font-semibold text-6xl">
-                  
                   <BarLoader
                      cssOverride={true}
-                     size={120}
-                     color="white"
+                     size={135}
+                     color={loadingColor}
                   />
-                  
                </section>
             </>
-
             :
-
             <>
                <section>
                   <section className='absolute top-4 right-5'>
@@ -119,7 +115,7 @@ export default function Edit() {
                <form
                   method="post" 
                   action={`/publi/apis/edit/post/${noteData._id}`} 
-                  className={`flex flex-col w-11/12 mt-20 justify-center items-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-900 text-slate-100 ${formBg}`}
+                  className={`flex flex-col w-11/12 mt-20 justify-center items-center flex-wrap p-3 rounded-md ${textForm} ${formBg}`}
                >
 
                   <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="title">
@@ -149,7 +145,7 @@ export default function Edit() {
                   </label>
                   <input
                      onChange={handleFileUpload}
-                     className="p-2 w-10/12 self-center font-semibold text-slate-100 rounded-sm md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12" 
+                     className={`p-2 w-10/12 self-center font-semibold ${textForm} rounded-sm md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12`}
                      type="file" 
                      name="foto" 
                      id="foto" 

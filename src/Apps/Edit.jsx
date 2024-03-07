@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Button from "../components/Button/Button";
-import Header from '../components/Header/Header';
 import { BarLoader } from 'react-spinners';
 import { FaCircleHalfStroke } from "react-icons/fa6";
+import Button from "../components/Button/Button";
+import Header from '../components/Header/Header';
 
 export default function Edit() {
    const [theme, setTheme] = useState('def');
@@ -21,11 +21,17 @@ export default function Edit() {
 
       async function getData(queryId) { 
          setLoading(true);
-         const note = await fetch(`/publi/apis/search/${queryId}`);
-         const nt = await note.json();      
-         setLoading(false);
 
-         return setNoteData(nt[0]);
+         try {
+            const note = await fetch(`/publi/apis/search/${queryId}`);
+            const nt = await note.json();      
+            
+            setLoading(false);
+
+            return setNoteData(nt[0]);
+         } catch (error) {
+            return console.error({ erro: error });
+         }
       };
 
       const getTheme = () => (localStorage.getItem('theme')) ? setTheme(localStorage.getItem('theme')) : 0;
@@ -60,9 +66,23 @@ export default function Edit() {
       return localStorage.setItem('theme', 'def');
    }
 
+   let [ mainBg, formBg, textEdit, textForm ] = [ 
+      'bg-slate-900',
+      'bg-slate-800',
+      'text-slate-100', 
+      'text-slate-200',
+   ];
+
+   if(theme === 'light') {
+      mainBg = 'bg-slate-200';
+      formBg = 'bg-slate-500'
+      textEdit = 'text-slate-700';
+      textForm = 'text-slate-700';
+   };
+
    return(
       <section
-         className="flex flex-col items-center min-h-screen max-h-fit px-5 bg-slate-900"
+         className={`flex flex-col items-center min-h-screen max-h-fit px-5 ${mainBg}`}
       >
          {
             loading
@@ -93,13 +113,13 @@ export default function Edit() {
                </section>
 
                <section className="mt-16">
-                  <h1 className="text-3xl font-semibold text-slate-100 md:text-4xl lg:text-5xl xl:text-6xl">Editar</h1>
+                  <h1 className={`text-3xl font-semibold ${textEdit} md:text-4xl lg:text-5xl xl:text-6xl`}>Editar</h1>
                </section>
                
                <form
                   method="post" 
                   action={`/publi/apis/edit/post/${noteData._id}`} 
-                  className="flex flex-col w-11/12 mt-20 justify-center items-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-900 text-slate-100 bg-slate-800"
+                  className={`flex flex-col w-11/12 mt-20 justify-center items-center flex-wrap p-3 rounded-md shadow-xl shadow-slate-900 text-slate-100 ${formBg}`}
                >
 
                   <label className="p-5 text-2xl font-semibold lg:text-3xl" htmlFor="title">
